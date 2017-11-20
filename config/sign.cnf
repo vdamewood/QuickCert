@@ -1,0 +1,36 @@
+[ ca ]
+default_ca = ca_default
+
+[ca_default]
+# CA's Own Pair
+basedir                 = .
+certificate             = $basedir/ca/ca.crt
+private_key             = $basedir/ca/ca.key
+
+# File locations
+database                = $basedir/data/database
+serial                  = $basedir/data/serial
+RANDFILE                = $basedir/data/rand
+new_certs_dir           = $basedir/certs
+
+# Other Values
+unique_subject          = no
+copy_extensions         = copy
+default_days            = 365
+default_md              = sha256
+x509_extensions         = extensions
+policy                  = policy
+
+[ policy ]
+countryName             = match
+stateOrProvinceName     = match
+localityName            = match
+organizationName        = match
+commonName              = supplied
+
+[ extensions ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer:always
+basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
