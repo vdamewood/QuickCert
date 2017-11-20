@@ -1,6 +1,6 @@
 # QuickCert
 
-QuickCert is a set of shell scripts for automating the process of setting up a prive, testing SSL certificate authority. Mostly, it's a quick and dirty way to get rid of warnings about unsecured connections and self-signed certificates. QuickCert is licensed under the terms of the Apache License version 2.0. See the file License.txt for details.
+QuickCert is a set of shell scripts for automating the process of setting up a private, testing SSL certificate authority. Mostly, it's a quick and dirty way to get rid of warnings about unsecured connections and self-signed certificates. QuickCert is licensed under the terms of the Apache License version 2.0. See the file License.txt for details.
 
 There are two scripts:
 
