@@ -24,8 +24,10 @@ if [ "$#" -ge 1 ]; then
 else
 	echo "Usage: mkcert.sh hostname [alias] ..."
 fi
+
+KEY_DIR=${KEYS_DIR}/${HOST}
 KEY_FILE=${KEY_DIR}/${HOST}.key
-CERT_FILE=${CERT_DIR}/${HOST}.crt
+CERT_FILE=${KEY_DIR}/${HOST}.crt
 
 REQ_CONF=`mktemp -t ${HOST}.cnf`
 if [ $? -ne 0 ]; then
@@ -63,6 +65,8 @@ done
 #######################################
 ##### Begin Actual Key Generation #####
 #######################################
+
+mkdir -p ${KEY_DIR}
 
 # Generate Hosts's Private Key
 # Doesn't Use Config

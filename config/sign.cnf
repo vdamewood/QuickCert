@@ -2,16 +2,14 @@
 default_ca = ca_default
 
 [ca_default]
-# CA's Own Pair
+# File Locations
 basedir                 = .
 certificate             = $basedir/ca/ca.crt
 private_key             = $basedir/ca/ca.key
-
-# File locations
-database                = $basedir/data/database
-serial                  = $basedir/data/serial
-RANDFILE                = $basedir/data/rand
-new_certs_dir           = $basedir/certs
+new_certs_dir           = $basedir/ca/certs
+database                = $basedir/ca/data/database
+serial                  = $basedir/ca/data/serial
+RANDFILE                = $basedir/ca/data/rand
 
 # Other Values
 unique_subject          = no

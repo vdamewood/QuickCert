@@ -18,7 +18,7 @@
 
 CONF_FILE=${CONF_DIR}/ca.cnf
 
-mkdir -p ${CA_DIR} ${DATA_DIR} ${KEY_DIR} ${CERT_DIR}
+mkdir -p ${CA_DIR} ${DATA_DIR} ${KEYS_DIR} ${CA_CERT_DIR}
 touch ${DATABASE_FILE}
 echo 2 > ${SERIAL_FILE}
 
