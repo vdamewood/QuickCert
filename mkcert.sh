@@ -68,10 +68,11 @@ done
 
 mkdir -p ${KEY_DIR}
 
-# Generate Hosts's Private Key
-# Doesn't Use Config
-${OPENSSL} genrsa \
-	-out ${KEY_FILE} 2048
+# Generate Hosts's Private Key if none exists.
+if [ ! -s ${KEY_FILE} ]; then
+	${OPENSSL} genrsa \
+		-out ${KEY_FILE} 2048
+fi
 chmod 400 ${KEY_FILE}
 
 # Generate Certificate Signing Request
@@ -80,6 +81,17 @@ ${OPENSSL} req \
 	-key ${KEY_FILE} \
 	-out ${REQ_FILE} \
 	-config ${REQ_CONF}
+
+
+# If there's already a certificate, save it.
+if [ -s ${CERT_FILE} ]; then
+	SUFFIX=1
+	while [ -s ${CERT_FILE}.${SUFFIX} ]; do
+		SUFFIX=$[$SUFFIX + 1]
+	done
+	mv ${CERT_FILE} ${CERT_FILE}.${SUFFIX}
+fi
+
 
 # Create certificate
 ${OPENSSL} ca \
