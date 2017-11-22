@@ -23,6 +23,7 @@ if [ "$#" -ge 1 ]; then
 	HOST=$1
 else
 	echo "Usage: mkcert.sh hostname [alias] ..."
+	exit 1
 fi
 
 KEY_DIR=${KEYS_DIR}/${HOST}
