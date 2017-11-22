@@ -20,7 +20,7 @@ CONF_FILE=${CONF_DIR}/ca.cnf
 
 mkdir -p ${CA_DIR} ${DATA_DIR} ${KEYS_DIR} ${CA_CERT_DIR}
 touch ${DATABASE_FILE}
-echo 2 > ${SERIAL_FILE}
+echo 1000 > ${SERIAL_FILE}
 
 # Create Root Key:
 ${OPENSSL} genrsa -out ${CA_KEY} 4096
