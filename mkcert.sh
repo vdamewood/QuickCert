@@ -15,6 +15,7 @@
 # limitations under the License.
 
 . ./config/config.sh
+. ./include/ip.sh
 
 SIGN_CONF=${CONF_DIR}/sign.cnf
 REQ_TEMPLATE=${CONF_DIR}/req.tpl
@@ -50,7 +51,7 @@ DNS_COUNT=1
 IP_COUNT=1
 while [ "$#" -gt 0 ]; do
 	# FIXME: Determine if $1 is an IP address.
-	if false; then
+	if is_ipv4 ${1} || is_ipv6 ${1}; then
 		printf "IP.%s = %s\n" "${IP_COUNT}" "${1}" >> ${REQ_CONF}
 		IP_COUNT=$[$IP_COUNT+1]
 		shift
