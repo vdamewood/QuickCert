@@ -13,8 +13,4 @@ basicConstraints       = critical, CA:true, pathlen:0
 keyUsage               = critical, digitalSignature, keyCertSign, cRLSign
 
 [ distinguished_name ]
-countryName             =
-stateOrProvinceName     =
-localityName            =
-organizationName        =
-commonName              =
+

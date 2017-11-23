@@ -16,19 +16,26 @@ There are two scripts:
 
 ## Setup
 
-To setup QuickCert, edit the files in the `config` directory with your
-own identifying information. The fields in the `distinguished_name`
-section in the `ca.cnf` and `req.tpl` files must match, and the
-`req.tpl` file must _not_ have a `commonName` field. (It will added by
-the `mkcert.sh` script.) The `config.sh` script has an `OPENSSL`
-variable and a `DOMAIN` variable. set `OPENSSL` to the location of the
-OpenSSL or LibreSSL executable you would like to use, if you wish to us
-a custom build. Set the `DOMAIN` variable to  your own domain. The
-`mkcert.sh` script will automatically append this to any names you pass
-to it.
+Before setting up QuickCert, you may want to edit the file
+`include/config.sh`. The `config.sh` file has an `OPENSSL`
+variable and a `DOMAIN` variable. The defaults values should be
+functional. If you wish to change the values, set `OPENSSL` to the
+location of the OpenSSL or LibreSSL executable you would like to use.
+Set the `DOMAIN` variable to  your own domain. The `mkcert.sh` script
+will automatically append this to any names you pass to it.
 
-Once you have edited the configuration files, run `setup.sh` in the base
-directory of the project. It will generate the key and certificate for
+To set up QuickCert, run the `setup.sh` script with your your country
+(as a two-letter code), state/province/region, city/town,
+organization name, and a unique name for your certificate authority, in
+order, as arguments. For example:
+
+```
+./mkcert.sh US Oregon Portland "Fake Web Services" "Fake Web Services CA"
+```
+
+This will copy the files from the `templates` directory into the
+`config` directory, add your identifying information to the copies in
+the `config` directory. and generate the key and certificate for
 your certificate authority. To get web browsers to trust your
 certificate authority, you will have to import the file `./ca/ca.crt`
 after it has been generated. This process varies between browsers.
@@ -41,6 +48,6 @@ with the `DOMAIN` value in `config/config.sh` will become the the
 common name value for the certificate. All of the arguments, both
 augmented with the `DOMAIN` value and without, will be used as subject
 alternative names for the generated certificate. Once generated, the
-files `./keys/<commonName>.key` and `./certs/<commonNam>.crt` can be
+files `./keys/<commonName>.key` and `./certs/<commonName>.crt` can be
 used with your web server. The exact process for installing keys and
 certificates varies.

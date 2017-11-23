@@ -14,11 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-. ./config/config.sh
+. ./include/config.sh
 . ./include/ip.sh
 
 SIGN_CONF=${CONF_DIR}/sign.cnf
-REQ_TEMPLATE=${CONF_DIR}/req.tpl
+REQ_TEMPLATE=${CONF_DIR}/req.cnf
 
 if [ "$#" -ge 1 ]; then
 	HOST=$1

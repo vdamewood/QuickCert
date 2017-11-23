@@ -12,7 +12,4 @@ extendedKeyUsage       = serverAuth
 subjectAltName         = @subject_alt_names
 
 [ distinguished_name ]
-countryName             =
-stateOrProvinceName     =
-localityName            =
-organizationName        =
+

@@ -1,2 +1,5 @@
-ca/
-keys/
+/ca/
+/config/ca.cnf
+/config/req.cnf
+/include/local.sh
+/keys/
