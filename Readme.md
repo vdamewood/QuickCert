@@ -16,12 +16,12 @@ There are two scripts:
 
 ## Setup
 
-Before setting up QuickCert, you may want to edit the file
-`include/config.sh`. The `config.sh` file has an `OPENSSL`
-variable and a `DOMAIN` variable. The defaults values should be
-functional. If you wish to change the values, set `OPENSSL` to the
+Before setting up QuickCert, you may want to make a file in the
+`include` directory and set two variables, `OPENSSL` and `DOMAIN`. If
+these values are not set, the scripts will set suitable defaults for
+most situations. If you wish to change the values, set `OPENSSL` to the
 location of the OpenSSL or LibreSSL executable you would like to use.
-Set the `DOMAIN` variable to  your own domain. The `mkcert.sh` script
+Set the `DOMAIN` variable to your own domain. The `mkcert.sh` script
 will automatically append this to any names you pass to it.
 
 To set up QuickCert, run the `setup.sh` script with your your country
